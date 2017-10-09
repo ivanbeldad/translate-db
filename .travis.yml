@@ -1,0 +1,10 @@
+language: java
+
+after_success:
+  # Upload to codacy
+  - mvn com.gavinmogan:codacy-maven-plugin:coverage -DcoverageReportFile=target/site/jacoco/jacoco.xml -DprojectToken=$CODACY_PROJECT_TOKEN -DapiToken=$CODACY_API_TOKEN
+
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
